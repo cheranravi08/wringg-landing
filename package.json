@@ -5,8 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "pages:preview": "npm run build && wrangler pages dev out",
-    "pages:deploy": "npm run build && wrangler pages deploy out --project-name=wringg",
+    "preview": "npm run build && wrangler dev",
+    "deploy": "npm run build && wrangler deploy",
+    "upload": "npm run build && wrangler version upload",
     "start": "next start",
     "lint": "eslint"
   },

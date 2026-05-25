@@ -37,32 +37,21 @@ npm run build
 
 This project uses `output: "export"` in `next.config.ts`, so the static production site is generated in the `out` directory.
 
-## Cloudflare Pages Deployment
+## Cloudflare Worker Deployment
 
-1. Push this project to a Git repository.
-2. In Cloudflare Dashboard, go to Workers & Pages.
-3. Create a Pages project and connect the repository.
-4. Use these build settings:
-   - Framework preset: Next.js or None
-   - Build command: `npm run build`
-   - Build output directory: `out`
-   - Root directory: `/`
-5. Deploy the project.
-6. Add the custom domain `wringg.in` in the Cloudflare Pages custom domains section.
+This project deploys as a Cloudflare Worker with static assets from the `out` directory.
 
-## Cloudflare Wrangler Deployment
-
-Wrangler is included for CLI deployment to Cloudflare Pages.
+Wrangler is included for CLI deployment.
 
 ```bash
 npm run build
-npm run pages:preview
+npm run worker:preview
 ```
 
-Deploy to the `wringg` Pages project:
+Deploy the Worker:
 
 ```bash
-npm run pages:deploy
+npm run worker:deploy
 ```
 
 If this is your first Cloudflare CLI deploy, authenticate first:
@@ -71,7 +60,7 @@ If this is your first Cloudflare CLI deploy, authenticate first:
 npx wrangler login
 ```
 
-The Wrangler config is in `wrangler.toml`, and the static output directory is `out`.
+The Wrangler config is in `wrangler.jsonc`. Static assets are served from `out` using Workers static assets without an assets binding.
 
 ## Assets
 
