@@ -50,6 +50,29 @@ This project uses `output: "export"` in `next.config.ts`, so the static producti
 5. Deploy the project.
 6. Add the custom domain `wringg.in` in the Cloudflare Pages custom domains section.
 
+## Cloudflare Wrangler Deployment
+
+Wrangler is included for CLI deployment to Cloudflare Pages.
+
+```bash
+npm run build
+npm run pages:preview
+```
+
+Deploy to the `wringg` Pages project:
+
+```bash
+npm run pages:deploy
+```
+
+If this is your first Cloudflare CLI deploy, authenticate first:
+
+```bash
+npx wrangler login
+```
+
+The Wrangler config is in `wrangler.toml`, and the static output directory is `out`.
+
 ## Assets
 
 The site uses the current WRINGG brand assets from `public`:
