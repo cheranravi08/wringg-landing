@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# WRINGG Landing Page
 
-## Getting Started
+Production-ready standalone landing page for WRINGG, built with Next.js, TypeScript, Tailwind CSS, and the App Router.
 
-First, run the development server:
+## Brand
+
+- Company: WRINGG
+- Tagline: Wash. Wear. Repeat.
+- Domain: wringg.in
+- Location: BTM Layout, Bengaluru
+- WhatsApp: +91 84385 08211
+- Email: hello@wringg.in
+
+## Routes
+
+- `/` - landing page
+- `/privacy` - Privacy Policy
+- `/terms` - Terms & Conditions
+- `/refund` - Refund & Cancellation Policy
+- `/shipping` - Shipping & Delivery Policy
+- `/contact` - Contact page
+
+## Local Development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Production Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+```
 
-## Learn More
+This project uses `output: "export"` in `next.config.ts`, so the static production site is generated in the `out` directory.
 
-To learn more about Next.js, take a look at the following resources:
+## Cloudflare Pages Deployment
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Push this project to a Git repository.
+2. In Cloudflare Dashboard, go to Workers & Pages.
+3. Create a Pages project and connect the repository.
+4. Use these build settings:
+   - Framework preset: Next.js or None
+   - Build command: `npm run build`
+   - Build output directory: `out`
+   - Root directory: `/`
+5. Deploy the project.
+6. Add the custom domain `wringg.in` in the Cloudflare Pages custom domains section.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Assets
 
-## Deploy on Vercel
+The site uses the current WRINGG brand assets from `public`:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Navbar: `public/LOGO+TEXT.jpg`
+- Footer and metadata icon: `public/LOGO.jpg`
+- Generated page visuals: `public/1 (2).png`, `public/1 (3).png`, `public/1 (4).png`, `public/1 (5).png`, `public/1.WEBP.png`, `public/2.WEBP.png`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Pilot CTA Links
+
+The landing page is currently in pilot mode. Primary CTAs use WhatsApp prefilled flows for early customer pickup requests and host onboarding, with button text framed as product actions instead of WhatsApp actions. These can later be swapped for app deep links or form URLs in `src/app/page.tsx`.
